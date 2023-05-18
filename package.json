@@ -6,7 +6,8 @@
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.json",
     "test": "jest",
-    "problem-a": "ts-node src/problem-a/main.ts"
+    "problem-a": "ts-node src/problem-a/main.ts",
+    "problem-b": "ts-node src/problem-b/main.ts"
   },
   "author": "Ivan Nosov",
   "license": "MIT",
@@ -21,5 +22,8 @@
     "ts-jest": "29.1.0",
     "ts-node": "10.9.1",
     "typescript": "5.0.4"
+  },
+  "dependencies": {
+    "peggy": "3.0.2"
   }
 }
