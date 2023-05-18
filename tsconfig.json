@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "target": "es2017",
+    "module": "commonjs",
+    "sourceMap": true,
+    "declaration": true,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "strict": true
+  }
+}
