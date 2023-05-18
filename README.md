@@ -17,7 +17,7 @@ npm run problem-a "^>v<"
 - Use the following command to run the solution for Problem B
 ```bash
 # input from string
-npm run problem-b "b -> c a -> b 42 -> a"
+npm run problem-b "a OR b -> c   NOT a -> b   1 OR 1 AND NOT 0 -> a"
 # or input from file
 npm run problem-b input.txt
 ```
