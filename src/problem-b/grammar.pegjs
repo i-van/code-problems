@@ -13,12 +13,12 @@
 }}
 
 start
-  = head:instruction tail:(_ instruction)* {
-    return [head, ...tail].flat(2);
+  = _ head:instruction tail:(_ @instruction)* _ {
+    return [head, ...tail].flat();
   }
 
 instruction
-  = _ from:expression _ "->" _ to:identifier _ {
+  = from:expression _ "->" _ to:identifier {
     return {
       from,
       to,
@@ -26,31 +26,31 @@ instruction
   }
 
 expression
-  = head:term tail:(_ "OR" _ term)* {
+  = head:term tail:(_ @"OR" _ @term)* {
     if (tail.length === 0) {
       return head;
     }
-    return tail.reduce((left, [_1, operator, _2, right]) => {
+    return tail.reduce((left, [operator, right]) => {
       return createBinaryExpression(operator, left, right);
     }, head);
   }
 
 term
-  = head:factor tail:(_ "AND" _ factor)* {
+  = head:factor tail:(_ @"AND" _ @factor)* {
     if (tail.length === 0) {
       return head;
     }
-    return tail.reduce((left, [_1, operator, _2, right]) => {
+    return tail.reduce((left, [operator, right]) => {
       return createBinaryExpression(operator, left, right);
     }, head);
   }
 
 factor
-  = head:primary tail:(_ ("LSHIFT" / "RSHIFT") _ primary)* {
+  = head:primary tail:(_ @("LSHIFT" / "RSHIFT") _ @primary)* {
     if (tail.length === 0) {
       return head;
     }
-    return tail.reduce((left, [_1, operator, _2, right]) => {
+    return tail.reduce((left, [operator, right]) => {
       return createBinaryExpression(operator, left, right);
     }, head);
   }
