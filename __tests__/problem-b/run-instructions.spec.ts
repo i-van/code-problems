@@ -47,6 +47,30 @@ describe('Problem B', () => {
         ]),
       },
       {
+        input: '1 OR 0 AND 0 -> x',
+        expected: new Map([
+          ['x', 1],
+        ]),
+      },
+      {
+        input: '0 AND 1 OR 1 -> x',
+        expected: new Map([
+          ['x', 1],
+        ]),
+      },
+      {
+        input: '(1 OR 0) AND 0 -> x',
+        expected: new Map([
+          ['x', 0],
+        ]),
+      },
+      {
+        input: '0 AND (1 OR 1) -> x',
+        expected: new Map([
+          ['x', 0],
+        ]),
+      },
+      {
         input: 'b -> c \n a -> b \t 42 -> a',
         expected: new Map([
           ['a', 42],
